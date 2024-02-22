@@ -1,11 +1,10 @@
 import { Router } from "express";
-import { createdUser, getAllUsers } from "../controller/user.connection.js";
+import { createdUser, getAllUsers } from "../controller/user.controller.js";
 
 const userRoute = Router();
 
 userRoute.post("/users", async (req, res) => {
-  const { name, email, password, relationship } = req.body;
-  const user = await createdUser(name, email, password, relationship);
+  const user = await createdUser(req.body);
   res.status(201).json({
     message: "User created successfully",
     user,

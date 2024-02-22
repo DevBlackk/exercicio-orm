@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(userRoute);
 app.use(messageRoute);
 
-app.use(port, () => {
+app.listen(port, () => {
   testConnection();
   console.log("Server running in port " + port);
 });
